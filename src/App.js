@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { auth, googleProvider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
 import Login from "./pages/Login";
@@ -8,10 +8,12 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
+      setIsLoading(false);
     });
     return () => unsubscribe();
   }, []);
@@ -19,6 +21,8 @@ function App() {
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider);
   };
+
+  if (isLoading) return "loading...";
 
   return (
     <div className="App">
@@ -48,9 +52,18 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/notes" element={<Notes />} />
+          <Route
+            path="/login"
+            element={user === null ? <Login /> : <Navigate to="/profile" />}
+          />
+          <Route
+            path="/profile"
+            element={user === null ? <Navigate to="/login" /> : <Profile />}
+          />
+          <Route
+            path="/notes"
+            element={user === null ? <Navigate to="/login" /> : <Notes />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
