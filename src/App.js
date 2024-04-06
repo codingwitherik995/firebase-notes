@@ -64,7 +64,9 @@ function App() {
           />
           <Route
             path="/notes"
-            element={user === null ? <Navigate to="/login" /> : <Notes />}
+            element={
+              user === null ? <Navigate to="/login" /> : <Notes user={user} />
+            }
           />
         </Routes>
       </BrowserRouter>
