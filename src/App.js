@@ -36,7 +36,7 @@ function App() {
             </a>
           </li>
           <li>
-            <button>Sign out</button>
+            <button onClick={() => auth.signOut()}>Sign out</button>
           </li>
         </ul>
       </nav>
