@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { auth, googleProvider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
@@ -26,9 +29,9 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element="login" />
-          <Route path="/profile" element="profile" />
-          <Route path="/notes" element="notes" />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/notes" element={<Notes />} />
         </Routes>
       </BrowserRouter>
     </div>
