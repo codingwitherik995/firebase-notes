@@ -70,9 +70,9 @@ const Notes = ({ user }) => {
       </div>
       <button onClick={createNote}>Add new note</button>
 
-      <ul>
+      <ul class="notes">
         {notes.map((doc) => (
-          <li key={doc.id}>
+          <li class="note" key={doc.id}>
             <h3>{doc.title}</h3>
             <p>{doc.description}</p>
             <button onClick={() => deleteNote(doc.id)}>delete</button>
