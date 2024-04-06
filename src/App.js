@@ -24,20 +24,25 @@ function App() {
     <div className="App">
       <nav>
         <ul>
-          <li>
-            <button onClick={signInWithGoogle}>Sign in with google</button>
-          </li>
-          <li>
-            <a href="/notes">notes</a>
-          </li>
-          <li>
-            <a href="/profile">
-              <img src="" alt="Profile" />
-            </a>
-          </li>
-          <li>
-            <button onClick={() => auth.signOut()}>Sign out</button>
-          </li>
+          {user === null ? (
+            <li>
+              <button onClick={signInWithGoogle}>Sign in with google</button>
+            </li>
+          ) : (
+            <>
+              <li>
+                <a href="/notes">notes</a>
+              </li>
+              <li>
+                <a href="/profile">
+                  <img src="" alt="Profile" />
+                </a>
+              </li>
+              <li>
+                <button onClick={() => auth.signOut()}>Sign out</button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
 
