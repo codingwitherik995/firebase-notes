@@ -4,14 +4,28 @@ import { signInWithPopup } from "firebase/auth";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Notes from "./pages/Notes";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, googleProvider);
+  };
+
   return (
     <div className="App">
       <nav>
         <ul>
           <li>
-            <button>Sign in with google</button>
+            <button onClick={signInWithGoogle}>Sign in with google</button>
           </li>
           <li>
             <a href="/notes">notes</a>
