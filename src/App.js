@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { auth, googleProvider } from "./firebase";
 import { signInWithPopup } from "firebase/auth";
 import Login from "./pages/Login";
@@ -60,26 +60,24 @@ function App() {
         </ul>
       </nav>
 
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/login"
-            element={user === null ? <Login /> : <Navigate to="/profile" />}
-          />
-          <Route
-            path="/profile"
-            element={
-              user === null ? <Navigate to="/login" /> : <Profile user={user} />
-            }
-          />
-          <Route
-            path="/notes"
-            element={
-              user === null ? <Navigate to="/login" /> : <Notes user={user} />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route
+          path="/login"
+          element={user === null ? <Login /> : <Navigate to="/profile" />}
+        />
+        <Route
+          path="/profile"
+          element={
+            user === null ? <Navigate to="/login" /> : <Profile user={user} />
+          }
+        />
+        <Route
+          path="/notes"
+          element={
+            user === null ? <Navigate to="/login" /> : <Notes user={user} />
+          }
+        />
+      </Routes>
     </div>
   );
 }

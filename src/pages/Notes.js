@@ -16,7 +16,7 @@ const Notes = ({ user }) => {
   const [newNoteDescription, setNewNoteDescription] = useState("");
 
   useEffect(() => {
-    //getNotes();
+    getNotes();
   }, []);
 
   const notesCollection = collection(db, "notes");
