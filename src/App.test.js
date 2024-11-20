@@ -9,7 +9,7 @@ describe("Login Page", () => {
     render(<Login />);
 
     // Check if the "Login" title is in the document
-    const loginTitle = screen.getByText(/Login/i);
+    const loginTitle = screen.getByText(/Logins/i);
     expect(loginTitle).toBeInTheDocument();
   });
 });
