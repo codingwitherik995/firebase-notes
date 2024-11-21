@@ -1,12 +1,8 @@
 {
   "hosting": {
-    "site": "fb-test-a0cbf",
+    "site": "fir-notes-a8cba",
     "public": "build",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",

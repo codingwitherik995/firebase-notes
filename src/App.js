@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { auth, googleProvider } from "./firebase";
-import { signInWithRedirect } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Notes from "./pages/Notes";
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   const signInWithGoogle = () => {
-    signInWithRedirect(auth, googleProvider);
+    signInWithPopup(auth, googleProvider);
   };
 
   if (isLoading)
