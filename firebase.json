@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "site": "fir-notes-a8cba",
-    "public": "build",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "fir-notes-a8cba"
-  }
+    "default": "notes-ca4fd",
+    "staging": "notes-ca4fd"
+  },
+  "targets": {},
+  "etags": {}
 }
