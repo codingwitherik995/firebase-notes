@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "notes-ca4fd",
-    "public": "public",
+    "public": "build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
